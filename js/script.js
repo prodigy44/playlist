@@ -25,22 +25,22 @@ var mySong = {
 
 var myPlayList = [
 	{
-		"title":"24K Magic",
-		"artist":"Bruno Mars",
-		"mp3URL":"https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P",
-		"imageURL":"https://images-na.ssl-images-amazon.com/images/I/71Gr9aCHQfL._SY355_.jpg",
+    	"title":"Best of Both Worlds",
+	    "artist":"Hannah Montana",
+	    "mp3URL":"https://open.spotify.com/track/6Z0F3Mqj7tq1CBZo5qMlUg",
+	    "imageURL":"https://images-na.ssl-images-amazon.com/images/I/51%2B0vlVS3ML._SX355_.jpg",
+},
+	{
+		"title":"I got Nerve ",
+		"artist":"Hannah Montana",
+		"mp3URL":"https://open.spotify.com/track/3bSq5OpEWmLK1o8F7saR2F",
+		"imageURL":"https://images-production.global.ssl.fastly.net/uploads/posts/image/136924/hannah-montana.jpg",
 	},
 	{
-		"title":"Sir Duke",
-		"artist":"Stevie Wonder",
-		"mp3URL":"https://open.spotify.com/track/2udw7RDkldLFIPG9WYdVtT",
-		"imageURL":"https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Songs_in_the_key_of_life.jpg/220px-Songs_in_the_key_of_life.jpg",
-	},
-	{
-		"title":"Sorry",
-		"artist":"Justin Bieber",
-		"mp3URL":"https://open.spotify.com/track/09CtPGIpYB4BrO8qb1RGsF",
-		"imageURL":"http://assets-s3.usmagazine.com/uploads/assets/articles/93827-justin-biebers-sorry-choreographer-spills-video-style-secrets-parris-goebel/1445638548_justin-bieber-sorry-dancers-zoom.jpg",
+		"title":"He could the One",
+		"artist":"Hannah Montana",
+		"mp3URL":"https://open.spotify.com/track/07HPV6hzecJmMJwsIX8YVU",
+		"imageURL":"https://i.ytimg.com/vi/pv585qiSCkI/hqdefault.jpg",
 	}
 
 ]
@@ -56,16 +56,15 @@ $( document ).ready(function() {
 });
 
 function displayList(){
-$('body').append("<p>Title: " + mySong.title + "</p>");
-$('body').append("<p>Artist: " + mySong.artist + "</p>");
-$('body').append(" <a href= " + mySong.mp3URL + ">Listen</a>");
-$('body').append("<img src=" + mySong.imageURL + ">");
+ 
+for (var i=0; i < myPlayList.length; i = i + 1) {
+$('body').append("<p>Title: " + myPlayList[i].title + "</p>");
+$('body').append("<p>Artist: " + myPlayList[i].artist + "</p>");
+$('body').append(" <a href= " + myPlayList[i].mp3URL + ">Listen </a>");
+$('body').append("<img src=" + myPlayList[i].imageURL + ">");
 
-
-
-  
+  }
 }
-
 function clearList(){
   
   
