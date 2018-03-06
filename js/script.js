@@ -16,6 +16,9 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 // Songs
+
+$( document ).ready(function() {
+	
 var mySong = {
 	"title":"Best of Both Worlds",
 	"artist":"Hannah Montana",
@@ -37,7 +40,7 @@ var myPlayList = [
 		"imageURL":"https://images-production.global.ssl.fastly.net/uploads/posts/image/136924/hannah-montana.jpg",
 	},
 	{
-		"title":"He could the One",
+		"title":"He could be the One",
 		"artist":"Hannah Montana",
 		"mp3URL":"https://open.spotify.com/track/07HPV6hzecJmMJwsIX8YVU",
 		"imageURL":"https://i.ytimg.com/vi/pv585qiSCkI/hqdefault.jpg",
@@ -47,32 +50,58 @@ var myPlayList = [
 
 
 
-// DOCUMENT READY FUNCTION
-$( document ).ready(function() {
-         displayList()
+function displayList(){
+
+
+  
+for (var i=0; i < myPlayList.length; i = i + 1) {
+	  	$('.songs').append("<p> Title: " + (myPlayList[i].title)+ "</p>");
+        $('.songs').append("<p>Artist: " + myPlayList[i].artist + "</p>");
+		$('.songs').append(" <a href=" + myPlayList[i].mp3URL + "> Listen </a>");
+		$('.songs').append("<img src=" + myPlayList[i].imageURL + ">");
+		$('.songs').append("<button class='deletebutton'> delete </button>")
+	}
+}
 
 
 
+$( "body" ).on( "click", ".deletebutton" ,function() {
+ //($('selector').index(this) );
+
+  console.log($('.deletebutton').index(this));
 });
 
-function displayList(){
- 
-for (var i=0; i < myPlayList.length; i = i + 1) {
-$('body').append("<p>Title: " + myPlayList[i].title + "</p>");
-$('body').append("<p>Artist: " + myPlayList[i].artist + "</p>");
-$('body').append(" <a href= " + myPlayList[i].mp3URL + ">Listen </a>");
-$('body').append("<img src=" + myPlayList[i].imageURL + ">");
-
-  }
-}
 function clearList(){
-  
+  $('#songs').empty();
   
   
 }
 
+
+// DOCUMENT READY FUNCTION
+
+  $('button').click(function(){
+       addSong();
+       clearList();
+       displayList();
+       
+       
+       
+   });
+
+	
 function addSong(){
- 
-  
+	
+   var titleInput=$("#title").val();
+   var artistInput=$("#artist").val(); 
+   var mp3URLInput=$("#mp3URL").val(); 
+   var imageURLInput=$("#imageURL").val(); 
+myPlayList.push({title: titleInput, artist: artistInput, mp3URL: mp3URLInput, imageURL: imageURLInput });
+
   
 }
+
+
+displayList();
+
+});
